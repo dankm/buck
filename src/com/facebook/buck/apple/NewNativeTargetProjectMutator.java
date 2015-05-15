@@ -547,7 +547,7 @@ public class NewNativeTargetProjectMutator {
 
     PBXShellScriptBuildPhase phase = new PBXShellScriptBuildPhase();
     target.getBuildPhases().add(phase);
-    phase.setShellPath("/bin/bash");
+    phase.setShellPath("/usr/bin/env bash");
     phase.setShellScript(scriptBuilder.toString());
     LOG.debug("Added asset catalog build phase %s", phase);
   }

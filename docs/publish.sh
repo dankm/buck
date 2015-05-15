@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # This generates the documentation for Buck and publishes it to GitHub.
 # Usage:

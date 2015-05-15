@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Wrapper script that runs the exopackage installer test on all connected
 # devices

@@ -233,7 +233,8 @@ public class GenruleTest {
         genruleCommand.getEnvironmentVariables(executionContext));
     assertEquals(
         ImmutableList.of(
-            "/bin/bash",
+            "/usr/bin/env",
+            "bash",
             "-e",
             "-c",
             "python convert_to_katana.py AndroidManifest.xml > $OUT"),
@@ -411,7 +412,7 @@ public class GenruleTest {
     ImmutableList<String> command = genrule
         .createGenruleStep()
         .getShellCommand(linuxExecutionContext);
-    assertEquals(ImmutableList.of("/bin/bash", "-e", "-c", bash), command);
+    assertEquals(ImmutableList.of("/usr/bin/env", "bash", "-e", "-c", bash), command);
 
     command = genrule.createGenruleStep().getShellCommand(windowsExecutionContext);
     assertEquals(ImmutableList.of("cmd.exe", "/c", cmdExe), command);
@@ -423,7 +424,7 @@ public class GenruleTest {
         .setOut("out.txt")
         .build(resolver);
     command = genrule.createGenruleStep().getShellCommand(linuxExecutionContext);
-    assertEquals(ImmutableList.of("/bin/bash", "-e", "-c", cmd), command);
+    assertEquals(ImmutableList.of("/usr/bin/env", "bash", "-e", "-c", cmd), command);
 
     command = genrule.createGenruleStep().getShellCommand(windowsExecutionContext);
     assertEquals(ImmutableList.of("cmd.exe", "/c", cmd), command);

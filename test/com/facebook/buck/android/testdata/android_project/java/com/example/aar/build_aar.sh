@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 OUT=$1
 TMP=$2

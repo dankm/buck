@@ -127,8 +127,8 @@ public abstract class AbstractGenruleStep extends ShellStep {
         BuildTarget target) {
       // The priority sequence is
       //   "cmd.exe /c winCommand" (Windows Only)
-      //   "/bin/bash -e -c shCommand" (Non-windows Only)
-      //   "(/bin/bash -c) or (cmd.exe /c) cmd" (All platforms)
+      //   "/usr/bin/env bash -e -c shCommand" (Non-windows Only)
+      //   "(/usr/bin/env bash -c) or (cmd.exe /c) cmd" (All platforms)
       String command;
       if (platform == Platform.WINDOWS) {
         if (!cmdExe.or("").isEmpty()) {
@@ -149,7 +149,7 @@ public abstract class AbstractGenruleStep extends ShellStep {
           throw new HumanReadableException("You must specify either bash or cmd for genrule %s.",
               target.getFullyQualifiedName());
         }
-        return new ExecutionArgsAndCommand(ImmutableList.of("/bin/bash", "-e", "-c"), command);
+        return new ExecutionArgsAndCommand(ImmutableList.of("/usr/bin/env", "bash", "-e", "-c"), command);
       }
     }
 

@@ -59,7 +59,7 @@ public class GenruleFailingCommandIntegrationTest {
      * like the following:
      *
      * BUILD FAILED: //:fail failed with exit code 1:
-     * (cd /tmp/junit12345/buck-out/gen/fail__srcs && /bin/bash -e -c 'false; echo >&2 hi')
+     * (cd /tmp/junit12345/buck-out/gen/fail__srcs && /usr/bin/env bash -e -c 'false; echo >&2 hi')
      *
      * We should match all that, except for the specific temp dir.
      */
@@ -67,7 +67,7 @@ public class GenruleFailingCommandIntegrationTest {
     // "(?s)" enables multiline matching for ".*". Parens have to be escaped.
     String outputPattern =
         "(?s).*BUILD FAILED: //:fail failed with exit code 1:\n" +
-        "\\(cd [-_ \\d\\w/]*/buck-out/gen/fail__srcs && /bin/bash -e -c 'false; echo >&2 hi'\\).*";
+        "\\(cd [-_ \\d\\w/]*/buck-out/gen/fail__srcs && /usr/bin/env bash -e -c 'false; echo >&2 hi'\\).*";
 
     assertTrue(
         "Unexpected output:\n" + quoteOutput(buildResult.getStderr()),
