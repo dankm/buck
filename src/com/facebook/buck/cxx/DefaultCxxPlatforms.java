@@ -38,19 +38,19 @@ public class DefaultCxxPlatforms {
   private static final Flavor FLAVOR = ImmutableFlavor.of("default");
 
   private static final Path DEFAULT_AS = Paths.get("/usr/bin/as");
-  private static final Path DEFAULT_ASPP = Paths.get("/usr/bin/gcc");
-  private static final Path DEFAULT_CC = Paths.get("/usr/bin/gcc");
-  private static final Path DEFAULT_CXX = Paths.get("/usr/bin/g++");
-  private static final Path DEFAULT_CPP = Paths.get("/usr/bin/gcc");
-  private static final Path DEFAULT_CXXPP = Paths.get("/usr/bin/g++");
-  private static final Path DEFAULT_CXXLD = Paths.get("/usr/bin/g++");
+  private static final Path DEFAULT_ASPP = Paths.get("/usr/bin/cc");
+  private static final Path DEFAULT_CC = Paths.get("/usr/bin/cc");
+  private static final Path DEFAULT_CXX = Paths.get("/usr/bin/c++");
+  private static final Path DEFAULT_CPP = Paths.get("/usr/bin/cc");
+  private static final Path DEFAULT_CXXPP = Paths.get("/usr/bin/c++");
+  private static final Path DEFAULT_CXXLD = Paths.get("/usr/bin/c++");
   private static final Path DEFAULT_LD = Paths.get("/usr/bin/ld");
   private static final Path DEFAULT_AR = Paths.get("/usr/bin/ar");
   @VisibleForTesting
   static final byte[] DEFAULT_EXPECTED_GLOBAL_HEADER =
       String.format("!<arch>%s", System.lineSeparator()).getBytes(Charsets.US_ASCII);
   private static final Path DEFAULT_LEX = Paths.get("/usr/bin/flex");
-  private static final Path DEFAULT_YACC = Paths.get("/usr/bin/bison");
+  private static final Path DEFAULT_YACC = Paths.get("/usr/local/bin/bison");
 
   public static CxxPlatform build(CxxBuckConfig config) {
     return build(Platform.detect(), config);

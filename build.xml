@@ -886,7 +886,7 @@
   <target name="client" description="install nailgun buckd c client (non Windows only)">
     <mkdir dir="${build.dir}" />
     <exec dir="${basedir}"
-          executable="gcc"
+          executable="cc"
           failonerror="true"
           osfamily="unix">
       <arg line="-Wall -pedantic -O3 -o ${build.dir}/ng ${client.dir}/nailgun-client/ng.c" />

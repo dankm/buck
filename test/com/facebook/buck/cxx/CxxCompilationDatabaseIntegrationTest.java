@@ -40,7 +40,7 @@ import java.util.Map;
 
 public class CxxCompilationDatabaseIntegrationTest {
 
-  private static final String COMPILER_PATH = "/usr/bin/g++";
+  private static final String COMPILER_PATH = "/usr/bin/c++";
 
   @Rule
   public DebuggableTemporaryFolder tmp = new DebuggableTemporaryFolder();
