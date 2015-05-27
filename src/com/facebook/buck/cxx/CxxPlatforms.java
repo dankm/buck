@@ -134,6 +134,8 @@ public class CxxPlatforms {
     switch (platform) {
       case LINUX:
         return CxxPlatform.LinkerType.GNU;
+      case FREEBSD:
+        return CxxPlatform.LinkerType.GNU;
       case MACOS:
         return CxxPlatform.LinkerType.DARWIN;
       case WINDOWS:

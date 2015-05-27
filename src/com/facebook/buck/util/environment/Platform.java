@@ -19,6 +19,7 @@ public enum Platform {
   LINUX("Linux"),
   MACOS("OS X"),
   WINDOWS("Windows"),
+  FREEBSD("FreeBSD"),
   UNKNOWN("Unknown");
 
   private String platformName;
@@ -35,6 +36,8 @@ public enum Platform {
     String platformName = System.getProperty("os.name");
     if (platformName.startsWith("Linux")) {
       return LINUX;
+    } else if (platformName.startsWith("FreeBSD")) {
+      return FREEBSD;
     } else if (platformName.startsWith("Mac OS")) {
       return MACOS;
     } else if (platformName.startsWith("Windows")) {

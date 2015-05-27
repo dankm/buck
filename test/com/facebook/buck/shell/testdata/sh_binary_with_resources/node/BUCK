@@ -5,6 +5,7 @@ sh_binary(
     'file with spaces in its name',
     'binaries/os_x_node_executable',
     'binaries/linux_node_executable',
+    'binaries/freebsd_node_executable',
   ],
   visibility = [
     'PUBLIC',

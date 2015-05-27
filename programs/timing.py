@@ -31,6 +31,20 @@ if platform.system() == 'Linux':
         clock_gettime(CLOCK_MONOTONIC_RAW, ctypes.byref(t))
         return t.tv_sec * NSEC_PER_SEC + t.tv_nsec
     monotonic_time_nanos = _monotonic_time_nanos_linux
+elif platform.system() == 'FreeBSD':
+    CLOCK_MONOTONIC = 4
+    libc = ctypes.CDLL('libc.so.7', use_errno=True)
+    clock_gettime = libc.clock_gettime
+
+    class struct_timespec(ctypes.Structure):
+        _fields_ = [('tv_sec', ctypes.c_long), ('tv_nsec', ctypes.c_long)]
+    clock_gettime.argtypes = [ctypes.c_int, ctypes.POINTER(struct_timespec)]
+
+    def _monotonic_time_nanos_freebsd():
+        t = struct_timespec()
+        clock_gettime(CLOCK_MONOTONIC, ctypes.byref(t))
+        return t.tv_sec * NSEC_PER_SEC + t.tv_nsec
+    monotonic_time_nanos = _monotonic_time_nanos_freebsd
 elif platform.system() == 'Darwin':
     # From <mach/mach_time.h>
     KERN_SUCCESS = 0
