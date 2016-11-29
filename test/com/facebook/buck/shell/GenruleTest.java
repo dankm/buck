@@ -249,7 +249,8 @@ public class GenruleTest {
     } else {
       assertEquals(
           ImmutableList.of(
-              "/bin/bash",
+              "/usr/bin/env",
+              "bash",
               "-e",
               scriptFilePath.toString()),
           genruleCommand.getShellCommand(executionContext));
@@ -576,7 +577,7 @@ public class GenruleTest {
     assertGenruleCommandAndScript(
         genrule.createGenruleStep(),
         linuxExecutionContext,
-        ImmutableList.of("/bin/bash", "-e"),
+        ImmutableList.of("/usr/bin/env", "bash", "-e"),
         bash);
 
     assertGenruleCommandAndScript(
@@ -594,7 +595,7 @@ public class GenruleTest {
     assertGenruleCommandAndScript(
         genrule.createGenruleStep(),
         linuxExecutionContext,
-        ImmutableList.of("/bin/bash", "-e"),
+        ImmutableList.of("/usr/bin/env", "bash", "-e"),
         cmd);
 
     assertGenruleCommandAndScript(

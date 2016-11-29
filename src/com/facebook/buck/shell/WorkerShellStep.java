@@ -169,7 +169,7 @@ public class WorkerShellStep implements Step {
   ImmutableList<String> getCommand(Platform platform) {
     ImmutableList<String> executionArgs = platform == Platform.WINDOWS ?
         ImmutableList.of("cmd.exe", "/c") :
-        ImmutableList.of("/bin/bash", "-e", "-c");
+        ImmutableList.of("/usr/bin/env", "bash", "-e", "-c");
 
     WorkerJobParams paramsToUse = this.getWorkerJobParamsToUse(platform);
     return ImmutableList.<String>builder()

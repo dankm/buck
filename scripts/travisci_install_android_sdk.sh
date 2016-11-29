@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -x
 
 export ANDROID_TOOL=${ANDROID_HOME}/tools/android

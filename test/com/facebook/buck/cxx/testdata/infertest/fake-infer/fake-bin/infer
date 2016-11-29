@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 function get_infer_argument {
     # retrieves the value of an argument passed to infer

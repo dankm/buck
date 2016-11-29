@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 THIS_DIR=$(pwd)/js
 
 get_param() {

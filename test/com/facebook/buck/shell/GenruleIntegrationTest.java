@@ -77,7 +77,7 @@ public class GenruleIntegrationTest {
      * like the following:
      *
      * BUILD FAILED: //:fail failed with exit code 1:
-     * (cd /tmp/junit12345/buck-out/gen/fail__srcs && /bin/bash -e -c 'false; echo >&2 hi')
+     * (cd /tmp/junit12345/buck-out/gen/fail__srcs && /usr/bin/env bash -e -c 'false; echo >&2 hi')
      *
      * We should match all that, except for the specific temp dir.
      */
@@ -86,7 +86,7 @@ public class GenruleIntegrationTest {
     String outputPattern =
         "(?s).*BUILD FAILED: //:fail failed with exit code 1:(?s).*" +
         "\\(cd .*/buck-out/gen/fail__srcs && " +
-        "/bin/bash -e .*/buck-out/tmp/genrule-[0-9]*\\.sh\\)(?s).*";
+        "/usr/bin/env bash -e .*/buck-out/tmp/genrule-[0-9]*\\.sh\\)(?s).*";
 
     assertTrue(
         "Unexpected output:\n" + quoteOutput(buildResult.getStderr()),

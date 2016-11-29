@@ -65,9 +65,9 @@ public class WorkerShellStepTest {
   private static final String persistentStartupArgs = "persistentStartupArgs";
   private static final String persistentWorkerKey = "//:my-persistent-worker";
   private static final String fakeWorkerStartupCommand =
-      String.format("/bin/bash -e -c %s %s", startupCommand, startupArgs);
+      String.format("/usr/bin/env bash -e -c %s %s", startupCommand, startupArgs);
   private static final String fakePersistentWorkerStartupCommand =
-      String.format("/bin/bash -e -c %s %s", startupCommand, persistentStartupArgs);
+      String.format("/usr/bin/env bash -e -c %s %s", startupCommand, persistentStartupArgs);
 
   private WorkerShellStep createWorkerShellStep(
       @Nullable WorkerJobParams cmdParams,
@@ -270,7 +270,8 @@ public class WorkerShellStepTest {
         step.getCommand(Platform.LINUX),
         Matchers.equalTo(
             ImmutableList.of(
-                "/bin/bash",
+                "/usr/bin/env",
+                "bash",
                 "-e",
                 "-c",
                 "command --platform unix-like")));

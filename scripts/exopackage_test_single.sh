@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Integration test for the exopackage installer.
 # This just tests the happy path, so it's more a test of device compatibility.

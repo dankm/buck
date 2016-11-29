@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Read in the handshake JSON.
 read -d "}" handshake_json

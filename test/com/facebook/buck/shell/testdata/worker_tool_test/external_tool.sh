@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Extract the "--num-jobs <n>" value from the args. This value is the number of
 # jobs this script should expect to be sent to it from buck.

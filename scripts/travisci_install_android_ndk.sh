@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -x
 
 # Because we cache NDK_HOME in Travis, we cannot test for the existence of the

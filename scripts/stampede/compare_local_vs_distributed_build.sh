@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -x # print command trace before running
 set -e # exit immediately if command fails

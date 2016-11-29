@@ -239,7 +239,7 @@ public class ApkGenruleTest {
     Path scriptFilePath = genruleCommand.getScriptFilePath(executionContext);
     String scriptFileContents = genruleCommand.getScriptFileContents(executionContext);
     assertEquals(
-        ImmutableList.of("/bin/bash", "-e", scriptFilePath.toString()),
+        ImmutableList.of("/usr/bin/env", "bash", "-e", scriptFilePath.toString()),
         genruleCommand.getShellCommand(executionContext));
     assertEquals("python signer.py $APK key.properties > $OUT", scriptFileContents);
 

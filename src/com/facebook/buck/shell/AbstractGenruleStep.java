@@ -180,7 +180,7 @@ public abstract class AbstractGenruleStep extends ShellStep {
 
   private enum ShellType {
     CMD_EXE("cmd", ImmutableList.of()),
-    BASH("sh", ImmutableList.of("/bin/bash", "-e")),
+    BASH("sh", ImmutableList.of("/usr/bin/env", "bash", "-e")),
     ;
     private final String extension;
     private final ImmutableList<String> executionArgs;
@@ -207,8 +207,8 @@ public abstract class AbstractGenruleStep extends ShellStep {
         BuildTarget target) {
       // The priority sequence is
       //   "cmd.exe /c winCommand" (Windows Only)
-      //   "/bin/bash -e -c shCommand" (Non-windows Only)
-      //   "(/bin/bash -c) or (cmd.exe /c) cmd" (All platforms)
+      //   "/usr/bin/env bash -e -c shCommand" (Non-windows Only)
+      //   "(/usr/bin/env bash -c) or (cmd.exe /c) cmd" (All platforms)
       String command;
       if (platform == Platform.WINDOWS) {
         if (!cmdExe.orElse("").isEmpty()) {

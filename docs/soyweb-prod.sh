@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Always run this script from the root of the Buck project directory.
 cd "$(git rev-parse --show-toplevel)/docs" || exit

@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/usr/bin/env bash -x
 
 # $DIR is the directory that hosts this script. Solution taken from:
 # http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in

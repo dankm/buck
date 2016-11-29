@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # This generates the static content for Buck's documentation.
 # Usage:
